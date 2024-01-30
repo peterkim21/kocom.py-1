@@ -602,7 +602,7 @@ def packet_processor(p):
             mqttc.publish("kocom/{}/light/state".format(p['src_room']), json.dumps(state))
         elif p['src'] == 'plug' and p['cmd'] == 'state':
             state = plug_parse(p['value'])
-            logtxt='[MQTT publish|light] room[{}] data[{}]'.format(p['src_room'], state)
+            logtxt='[MQTT publish|plug] room[{}] data[{}]'.format(p['src_room'], state)
             mqttc.publish("kocom/{}/plug/state".format(p['src_room']), json.dumps(state))
         elif p['src'] == 'fan' and p['cmd'] == 'state':
             state = fan_parse(p['value'])
@@ -777,7 +777,7 @@ def publish_discovery(dev, sub=''):
     elif dev == 'plug':
         for num in range(1, int(config.get('User', 'plug_count'))+1):
             #ha_topic = 'homeassistant/plug/kocom_livingroom_light1/config'
-            topic = 'homeassistant/light/kocom_{}_plug{}/config'.format(sub, num)
+            topic = 'homeassistant/plug/kocom_{}_plug{}/config'.format(sub, num)
             payload = {
                 'name': 'Kocom {} Plug{}'.format(sub, num),
                 'cmd_t': 'kocom/{}/plug/{}/command'.format(sub, num),
