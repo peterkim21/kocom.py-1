@@ -300,7 +300,7 @@ def light_parse(value):
 def plug_parse(value):
     ret = {}
     for i in range(1, int(config.get('User', 'plug_count'))+1):
-        ret['plug_'+str(i)] = 'off' if value[i*2-2:i*2] == '00' else 'on'        
+        ret['plug_'+str(i)] = 'false' if value[i*2-2:i*2] == '00' else 'true'        
     return ret
  
 def fan_parse(value):
@@ -679,7 +679,7 @@ def publish_discovery(dev, sub=''):
         air_attr = {'pm10': ['molecule', 'µg/m³'], 'pm25': ['molecule', 'µg/m³'], 'co2': ['molecule-co2', 'ppm'], 'tvocs': ['molecule', 'ppb'], 'temperature': ['thermometer', '°C'], 'humidity': ['water-percent', '%'], 'score': ['periodic-table', '%']}
         for key, icon_unit in air_attr.items():
             icon, unit = icon_unit
-            topic = f'homeassistant/sensor/kocom_wallpad_air_{key}/config'
+            topic = 'homeassistant/sensor/kocom_wallpad_air_{key}/config'
             payload = {
                 'name': f'kocom_air_{key}',
                 'stat_t': 'kocom/livingroom/air/state',
