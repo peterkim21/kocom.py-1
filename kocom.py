@@ -785,6 +785,7 @@ def publish_discovery(dev, sub=''):
                 'stat_val_tpl': '{{ value_json.plug_' + str(num) + ' }}',
                 'pl_on': 'on',
                 'pl_off': 'off',
+                'ic': 'mdi:power-socket-eu',
                 'qos': 0,
 #               'uniq_id': '{}_{}_{}{}'.format('kocom', 'wallpad', dev, num),      # 20221108 주석처리
                 'uniq_id': '{}_{}_{}{}'.format('kocom', sub, dev, num),            # 20221108 수정
