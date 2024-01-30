@@ -776,8 +776,8 @@ def publish_discovery(dev, sub=''):
                 logging.info(logtxt)
     elif dev == 'plug':
         for num in range(1, int(config.get('User', 'plug_count'))+1):
-            #ha_topic = 'homeassistant/plug/kocom_livingroom_light1/config'
-            topic = 'homeassistant/plug/kocom_{}_plug{}/config'.format(sub, num)
+            #ha_topic = 'homeassistant/switch/kocom_livingroom_light1/config'
+            topic = 'homeassistant/switch/kocom_{}_plug{}/config'.format(sub, num)
             payload = {
                 'name': 'Kocom {} Plug{}'.format(sub, num),
                 'cmd_t': 'kocom/{}/plug/{}/command'.format(sub, num),
