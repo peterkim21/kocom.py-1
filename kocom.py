@@ -300,7 +300,8 @@ def light_parse(value):
 def plug_parse(value):
     ret = {}
     for i in range(1, int(config.get('User', 'plug_count'))+1):
-        ret['plug_'+str(i)] = 'off' if value[i*2-2:i*2] == '00' else 'on'
+        #ret['plug_'+str(i)] = 'off' if value[i*2-2:i*2] == '00' else 'on'
+        ret['plug_'+str(i)] = 'off'
     return ret
  
 def fan_parse(value):
